@@ -17,6 +17,10 @@ export default function Dashboard() {
       .then(d => {
         setData(d);
         setLoading(false);
+      })
+      .catch(e => {
+        setData({ error: e.message } as any);
+        setLoading(false);
       });
   }, []);
 
@@ -41,13 +45,21 @@ export default function Dashboard() {
         <p style={{ color: "var(--text-muted)" }}>Focus on your principle skills and college classes.</p>
       </header>
 
+      {/* ERROR BANNER */}
+      {(data as any)?.error && (
+        <div style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", padding: "1rem", borderRadius: "var(--radius-md)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+          <strong>Error loading tasks:</strong> {(data as any).error}
+          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>If this is a database connection error on Vercel, make sure you have added the DATABASE_URL environment variable exactly as shown previously.</p>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "start" }}>
         {/* Principle Skills */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           <h2 style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--primary)" }}>Principle Skills</h2>
-          {data?.tasks.length === 0 && <p style={{ color: "var(--text-muted)" }}>No tasks today. Have you set your principle skills?</p>}
+          {data?.tasks?.length === 0 && <p style={{ color: "var(--text-muted)" }}>No tasks today. Have you set your principle skills?</p>}
           
-          {data?.tasks.map((task) => (
+          {data?.tasks?.map((task: any) => (
             <Card key={task.id} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div>
@@ -73,9 +85,9 @@ export default function Dashboard() {
         {/* College Classes */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           <h2 style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--secondary)" }}>College Classes</h2>
-          {data?.classTasks.length === 0 && <p style={{ color: "var(--text-muted)" }}>No classes scheduled for today.</p>}
+          {data?.classTasks?.length === 0 && <p style={{ color: "var(--text-muted)" }}>No classes scheduled for today.</p>}
           
-          {data?.classTasks.map((ct) => (
+          {data?.classTasks?.map((ct: any) => (
             <Card key={ct.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <div style={{
