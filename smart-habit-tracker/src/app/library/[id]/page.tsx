@@ -39,6 +39,8 @@ export default function SkillDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [addingStatus, setAddingStatus] = useState<Record<string, string>>({});
+
   useEffect(() => {
     if (!id) return;
     fetch(`/api/skills/${id}`)
@@ -56,6 +58,40 @@ export default function SkillDetails() {
         setLoading(false);
       });
   }, [id]);
+
+  const handleAddToWeek = async (moduleId: string) => {
+    setAddingStatus(prev => ({ ...prev, [moduleId]: "Adding..." }));
+    try {
+      const res = await fetch("/api/tasks/weekly", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skillId: id, moduleId })
+      });
+      if (!res.ok) throw new Error("Failed to assign");
+      setAddingStatus(prev => ({ ...prev, [moduleId]: "Added!" }));
+      setTimeout(() => setAddingStatus(prev => ({ ...prev, [moduleId]: "" })), 2000);
+    } catch (e) {
+      setAddingStatus(prev => ({ ...prev, [moduleId]: "Error" }));
+      setTimeout(() => setAddingStatus(prev => ({ ...prev, [moduleId]: "" })), 2000);
+    }
+  };
+
+  const handleAddToToday = async (subtopicId: string) => {
+    setAddingStatus(prev => ({ ...prev, [subtopicId]: "Adding..." }));
+    try {
+      const res = await fetch("/api/tasks/daily", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skillId: id, subtopicId })
+      });
+      if (!res.ok) throw new Error("Failed to assign");
+      setAddingStatus(prev => ({ ...prev, [subtopicId]: "Added!" }));
+      setTimeout(() => setAddingStatus(prev => ({ ...prev, [subtopicId]: "" })), 2000);
+    } catch (e) {
+      setAddingStatus(prev => ({ ...prev, [subtopicId]: "Error" }));
+      setTimeout(() => setAddingStatus(prev => ({ ...prev, [subtopicId]: "" })), 2000);
+    }
+  };
 
   if (loading) return <div className="animate-fade-in">Loading skill details...</div>;
   if (error || !skill) return (
@@ -81,8 +117,11 @@ export default function SkillDetails() {
           <Card key={mod.id} style={{ display: "flex", flexDirection: "column", gap: "1.5rem", borderLeft: "4px solid var(--primary)" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-                <h2 style={{ fontSize: "1.5rem", fontWeight: 600 }}>Module {mIndex + 1}: {mod.name}</h2>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: 600, flex: 1 }}>Module {mIndex + 1}: {mod.name}</h2>
                 <Badge variant="neutral">{mod.duration}</Badge>
+                <Button size="sm" variant="secondary" onClick={() => handleAddToWeek(mod.id)} disabled={!!addingStatus[mod.id]}>
+                  {addingStatus[mod.id] || "+ Assign to this Week"}
+                </Button>
               </div>
               
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginTop: "1rem" }}>
@@ -106,8 +145,11 @@ export default function SkillDetails() {
               {mod.subtopics?.map((sub, sIndex) => (
                 <div key={sub.id} style={{ background: "rgba(0,0,0,0.2)", padding: "1rem", borderRadius: "var(--radius-md)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-                    <h4 style={{ fontSize: "1.1rem", fontWeight: 500 }}>{mIndex + 1}.{sIndex + 1} {sub.name}</h4>
+                    <h4 style={{ fontSize: "1.1rem", fontWeight: 500, flex: 1 }}>{mIndex + 1}.{sIndex + 1} {sub.name}</h4>
                     <Badge variant="warning">{sub.duration}</Badge>
+                    <Button size="sm" variant="ghost" onClick={() => handleAddToToday(sub.id)} disabled={!!addingStatus[sub.id]} style={{ fontSize: "0.8rem", padding: "0.2rem 0.5rem", height: "auto" }}>
+                      {addingStatus[sub.id] || "+ Add to Today"}
+                    </Button>
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginTop: "0.75rem" }}>
                     <div>
