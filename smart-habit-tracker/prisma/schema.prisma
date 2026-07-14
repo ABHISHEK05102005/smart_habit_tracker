@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+// ─── Skill Library ────────────────────────────────────────────────────────────
+
+model Skill {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  source      String   @default("seed") // "seed" | "ai"
+  createdAt   DateTime @default(now())
+
+  modules     Module[]
+  dailyTasks  DailyTask[]
+  weeklyTasks WeeklyTask[]
+}
+
+model Module {
+  id           String     @id @default(cuid())
+  skillId      String
+  skill        Skill      @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  name         String
+  duration     String
+  learn        String     @db.Text
+  implement    String     @db.Text
+  miniProject  String     @db.Text
+  order        Int
+  status       TaskStatus @default(NOT_STARTED)
+  completedAt  DateTime?
+  linkedTaskId String?
+
+  subtopics   Subtopic[]
+  weeklyTasks WeeklyTask[]
+}
+
+model Subtopic {
+  id           String     @id @default(cuid())
+  moduleId     String
+  module       Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  name         String
+  duration     String
+  learn        String     @db.Text
+  implement    String     @db.Text
+  miniProject  String     @db.Text
+  order        Int
+  status       TaskStatus @default(NOT_STARTED)
+  completedAt  DateTime?
+  linkedTaskId String?
+
+  dailyTasks DailyTask[]
+}
+
+// ─── Task Lists ───────────────────────────────────────────────────────────────
+
+model DailyTask {
+  id           String     @id @default(cuid())
+  skillId      String
+  skill        Skill      @relation(fields: [skillId], references: [id])
+  moduleId     String?
+  subtopicId   String?
+  subtopic     Subtopic?  @relation(fields: [subtopicId], references: [id])
+  // Stored as YYYY-MM-DD in IST so date comparisons are stable
+  dateIST      String
+  status       TaskStatus @default(NOT_STARTED)
+  source       TaskSource @default(AUTO)
+  completedAt  DateTime?
+  xpAwarded    Int        @default(0)
+
+  @@index([dateIST])
+}
+
+model WeeklyTask {
+  id           String     @id @default(cuid())
+  skillId      String
+  skill        Skill      @relation(fields: [skillId], references: [id])
+  moduleId     String?
+  module       Module?    @relation(fields: [moduleId], references: [id])
+  // ISO week start date in IST: YYYY-MM-DD (Monday)
+  weekIST      String
+  status       TaskStatus @default(NOT_STARTED)
+  source       TaskSource @default(AUTO)
+  completedAt  DateTime?
+  xpAwarded    Int        @default(0)
+
+  @@index([weekIST])
+}
+
+// ─── User State ───────────────────────────────────────────────────────────────
+
+model UserSettings {
+  id              String   @id @default(cuid())
+  userId          String   @unique @default("default")
+  principleSkills String[] // ordered array of Skill ids (3–5)
+  totalXp         Int      @default(0)
+  currentStreak   Int      @default(0)
+  bestStreak      Int      @default(0)
+  lastActiveDateIST String? // YYYY-MM-DD in IST
+  rank            String   @default("E")
+  updatedAt       DateTime @updatedAt
+}
+
+model RotationCursor {
+  id              String @id @default(cuid())
+  userId          String @default("default")
+  skillId         String
+  dailyCursorIdx  Int    @default(0) // flat index into all subtopics across all modules
+  weeklyCursorIdx Int    @default(0) // index into modules
+
+  @@unique([userId, skillId])
+}
+
+// ─── College Timetable ────────────────────────────────────────────────────────
+
+model CollegeClassRule {
+  id          String   @id @default(cuid())
+  userId      String   @default("default")
+  subjectCode String
+  subjectName String?
+  // comma-separated weekday numbers: 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
+  days        String
+  timeIST     String // "HH:MM" e.g. "14:30"
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  classTasks CollegeClassTask[]
+
+  @@unique([userId, subjectCode, days, timeIST]) // deduplication key
+}
+
+model CollegeClassTask {
+  id          String           @id @default(cuid())
+  ruleId      String
+  rule        CollegeClassRule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  dateIST     String // YYYY-MM-DD in IST
+  status      TaskStatus       @default(NOT_STARTED)
+  completedAt DateTime?
+
+  @@unique([ruleId, dateIST])
+  @@index([dateIST])
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum TaskStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum TaskSource {
+  AUTO
+  MANUAL
+}

@@ -1,0 +1,1739 @@
+{
+  "meta": {
+    "title": "Smart Habit Tracker - Pregenerated Skill Library",
+    "format": "skill -> modules (3-4hr, Learn/Implement/MiniProject) -> subtopics (1hr, Learn/Implement/MiniProject)",
+    "note": "This is the static seed data bundled with the app so the skill library works even if the live AI backend is unavailable post-deployment. New skills added by the user go through the AI expansion pipeline at runtime and follow this exact schema."
+  },
+  "skills": {
+    "C++ DSA": [
+      {
+        "name": "Arrays & Strings",
+        "duration": "3-4 hours",
+        "learn": "Time/space complexity, in-place ops, prefix sums, sliding window, two pointers.",
+        "implement": "Solve 15 array/string problems (easy-medium) from scratch in C++.",
+        "mini_project": "Build a 'Text Analyzer CLI' that computes word frequency, longest substring w/o repeat, anagram groups.",
+        "subtopics": [
+          {
+            "name": "Two Pointers & Sliding Window",
+            "duration": "1 hour",
+            "learn": "Pattern mechanics, when each applies.",
+            "implement": "Code max subarray sum (k), remove duplicates in-place.",
+            "mini_project": "Mini: longest substring without repeating characters tool."
+          },
+          {
+            "name": "Prefix Sum & Kadane's",
+            "duration": "1 hour",
+            "learn": "Cumulative sums, subarray sum problems, max subarray.",
+            "implement": "Implement prefix-sum range-query struct + Kadane's.",
+            "mini_project": "Mini: stock buy-sell profit calculator."
+          },
+          {
+            "name": "String Manipulation",
+            "duration": "1 hour",
+            "learn": "Hashing, anagrams, palindrome checks, KMP basics.",
+            "implement": "Implement anagram grouping + palindrome partitioning.",
+            "mini_project": "Mini: palindrome checker + anagram grouper CLI."
+          }
+        ]
+      },
+      {
+        "name": "Linked Lists",
+        "duration": "3-4 hours",
+        "learn": "Singly/doubly/circular lists, pointer manipulation, Floyd's cycle detection.",
+        "implement": "Implement all list types + reversal + cycle detection from scratch.",
+        "mini_project": "Build a 'Music Playlist Manager' using doubly circular linked list.",
+        "subtopics": [
+          {
+            "name": "Singly Linked List Ops",
+            "duration": "1 hour",
+            "learn": "Insert/delete/reverse/traverse.",
+            "implement": "Code full singly LL class with reversal.",
+            "mini_project": "Mini: undo-stack via singly LL."
+          },
+          {
+            "name": "Doubly & Circular LL",
+            "duration": "1 hour",
+            "learn": "Bidirectional traversal, circular buffer use-cases.",
+            "implement": "Implement DLL + circular queue on top of it.",
+            "mini_project": "Mini: browser history (back/forward) simulator."
+          },
+          {
+            "name": "Cycle Detection & Merge",
+            "duration": "1 hour",
+            "learn": "Floyd's tortoise-hare, merge k sorted lists.",
+            "implement": "Implement cycle detection + merge-k-lists via heap.",
+            "mini_project": "Mini: LRU-adjacent cycle detector for a graph of tasks."
+          }
+        ]
+      },
+      {
+        "name": "Stacks, Queues & Monotonic Structures",
+        "duration": "3-4 hours",
+        "learn": "LIFO/FIFO fundamentals, monotonic stack/queue, deque applications.",
+        "implement": "Implement stack/queue from array & linked list; solve monotonic stack problems.",
+        "mini_project": "Build an 'Expression Evaluator' (infix\u2192postfix\u2192eval) using stacks.",
+        "subtopics": [
+          {
+            "name": "Stack Fundamentals",
+            "duration": "1 hour",
+            "learn": "Array vs LL stack, balanced parens, min-stack.",
+            "implement": "Code min-stack O(1) getMin, valid parentheses.",
+            "mini_project": "Mini: bracket-matching linter for code snippets."
+          },
+          {
+            "name": "Queue & Deque",
+            "duration": "1 hour",
+            "learn": "Circular queue, deque, sliding window max.",
+            "implement": "Implement deque-based sliding window maximum.",
+            "mini_project": "Mini: real-time max-in-window monitor."
+          },
+          {
+            "name": "Monotonic Stack Patterns",
+            "duration": "1 hour",
+            "learn": "Next greater/smaller element, histogram problems.",
+            "implement": "Solve largest rectangle in histogram, daily temperatures.",
+            "mini_project": "Mini: stock-span calculator."
+          }
+        ]
+      },
+      {
+        "name": "Trees & BST",
+        "duration": "3-4 hours",
+        "learn": "Traversals, height/diameter, BST properties, balancing intuition (AVL/Red-Black concept).",
+        "implement": "Implement BT/BST with all traversals, insert/delete/search, LCA.",
+        "mini_project": "Build a 'File System Explorer' modeled as an n-ary tree with search.",
+        "subtopics": [
+          {
+            "name": "Tree Traversals",
+            "duration": "1 hour",
+            "learn": "Pre/in/post/level order, iterative + recursive.",
+            "implement": "Code all four traversal styles.",
+            "mini_project": "Mini: expression-tree evaluator via traversal."
+          },
+          {
+            "name": "BST Operations",
+            "duration": "1 hour",
+            "learn": "Insert/delete/search, validate BST, kth smallest.",
+            "implement": "Implement full BST class + validation.",
+            "mini_project": "Mini: auto-complete dictionary via BST."
+          },
+          {
+            "name": "LCA & Balancing Concepts",
+            "duration": "1 hour",
+            "learn": "LCA algorithms, AVL rotation intuition, height balance.",
+            "implement": "Code LCA (binary tree + BST), check balanced tree.",
+            "mini_project": "Mini: org-chart 'closest common manager' finder."
+          }
+        ]
+      },
+      {
+        "name": "Heaps & Priority Structures",
+        "duration": "3-4 hours",
+        "learn": "Heap property, heapify, priority queues, k-way merge patterns.",
+        "implement": "Implement min/max heap from scratch; solve top-k problems.",
+        "mini_project": "Build a 'Task Scheduler' that always executes the highest-priority job.",
+        "subtopics": [
+          {
+            "name": "Heap Construction",
+            "duration": "1 hour",
+            "learn": "Up-heapify/down-heapify, build-heap O(n).",
+            "implement": "Code heap class with insert/extract-min.",
+            "mini_project": "Mini: running-median tracker (two heaps)."
+          },
+          {
+            "name": "Priority Queue Applications",
+            "duration": "1 hour",
+            "learn": "Top-k elements, k closest points, merge k lists.",
+            "implement": "Solve top-k frequent elements using heap.",
+            "mini_project": "Mini: 'k nearest hospitals' locator."
+          },
+          {
+            "name": "Advanced Heap Patterns",
+            "duration": "1 hour",
+            "learn": "Two-heap median, heap + hashmap combos.",
+            "implement": "Implement sliding window median.",
+            "mini_project": "Mini: leaderboard with live rank updates."
+          }
+        ]
+      },
+      {
+        "name": "Graph Theory",
+        "duration": "3-4 hours",
+        "learn": "Representations, BFS/DFS, shortest path (Dijkstra/Bellman-Ford), MST (Kruskal/Prim), DSU.",
+        "implement": "Implement adjacency list graph + all core traversal/path algorithms.",
+        "mini_project": "Build a 'Campus Navigation System' finding shortest path between buildings.",
+        "subtopics": [
+          {
+            "name": "BFS/DFS Traversal",
+            "duration": "1 hour",
+            "learn": "Graph representations, connected components.",
+            "implement": "Code BFS/DFS + number of islands.",
+            "mini_project": "Mini: maze solver."
+          },
+          {
+            "name": "Shortest Path Algorithms",
+            "duration": "1 hour",
+            "learn": "Dijkstra, Bellman-Ford, when each applies.",
+            "implement": "Implement Dijkstra with priority queue.",
+            "mini_project": "Mini: flight-route cheapest-path finder."
+          },
+          {
+            "name": "MST & Disjoint Set Union",
+            "duration": "1 hour",
+            "learn": "Kruskal's, Prim's, DSU with path compression.",
+            "implement": "Implement DSU + Kruskal's MST.",
+            "mini_project": "Mini: network cable-cost minimizer."
+          }
+        ]
+      },
+      {
+        "name": "Dynamic Programming",
+        "duration": "3-4 hours",
+        "learn": "Memoization vs tabulation, knapsack family, LCS/LIS, MCM, Catalan numbers.",
+        "implement": "Solve DP problems bottom-up with explicit state tables.",
+        "mini_project": "Build a 'Trip Budget Optimizer' (0-1 knapsack variant) with constraints.",
+        "subtopics": [
+          {
+            "name": "Knapsack Family",
+            "duration": "1 hour",
+            "learn": "0-1, unbounded, subset-sum, target-sum.",
+            "implement": "Implement all four knapsack variants.",
+            "mini_project": "Mini: shopping-cart budget maximizer."
+          },
+          {
+            "name": "String DP (LCS/LIS)",
+            "duration": "1 hour",
+            "learn": "Longest common subsequence, longest increasing subsequence, edit distance.",
+            "implement": "Code LCS, LIS (O(n log n)), edit distance.",
+            "mini_project": "Mini: plagiarism similarity checker."
+          },
+          {
+            "name": "Interval & Partition DP",
+            "duration": "1 hour",
+            "learn": "Matrix chain multiplication, palindrome partitioning, Catalan numbers.",
+            "implement": "Implement MCM + palindrome partition DP.",
+            "mini_project": "Mini: optimal matrix-multiply order planner."
+          }
+        ]
+      },
+      {
+        "name": "Segment Trees & Advanced Structures",
+        "duration": "3-4 hours",
+        "learn": "Segment trees, Fenwick/BIT, trie, point/range update-query.",
+        "implement": "Implement segment tree + BIT supporting range sum/min/max.",
+        "mini_project": "Build a 'Live Leaderboard Range Query' service.",
+        "subtopics": [
+          {
+            "name": "Segment Tree Basics",
+            "duration": "1 hour",
+            "learn": "Build, point update, range query.",
+            "implement": "Code segment tree for range sum.",
+            "mini_project": "Mini: range-min-query stock analyzer."
+          },
+          {
+            "name": "Fenwick Tree (BIT)",
+            "duration": "1 hour",
+            "learn": "Prefix sums with O(log n) updates.",
+            "implement": "Implement BIT for frequency counting.",
+            "mini_project": "Mini: inversion-count calculator."
+          },
+          {
+            "name": "Trie & String Structures",
+            "duration": "1 hour",
+            "learn": "Prefix trees, autocomplete, word search.",
+            "implement": "Implement trie insert/search/prefix-match.",
+            "mini_project": "Mini: autocomplete search-bar backend."
+          }
+        ]
+      }
+    ],
+    "C++ Physics Engine": [
+      {
+        "name": "Math Foundations for Physics",
+        "duration": "3-4 hours",
+        "learn": "Vectors, matrices, quaternions, dot/cross products, transforms.",
+        "implement": "Build a custom Vec2/Vec3/Mat4/Quaternion math library.",
+        "mini_project": "Mini engine demo rotating/translating shapes using your own math lib.",
+        "subtopics": [
+          {
+            "name": "Vector Algebra",
+            "duration": "1 hour",
+            "learn": "Dot/cross product, normalization, projections.",
+            "implement": "Implement Vec2/Vec3 class with operators.",
+            "mini_project": "Mini: 2D point-projection visual test."
+          },
+          {
+            "name": "Matrices & Transforms",
+            "duration": "1 hour",
+            "learn": "Translation/rotation/scale matrices, matrix stacks.",
+            "implement": "Implement Mat4 with transform composition.",
+            "mini_project": "Mini: transform-hierarchy demo (parent-child objects)."
+          },
+          {
+            "name": "Quaternions",
+            "duration": "1 hour",
+            "learn": "Why quaternions over Euler angles, slerp.",
+            "implement": "Implement quaternion class + slerp interpolation.",
+            "mini_project": "Mini: smooth camera-rotation demo."
+          }
+        ]
+      },
+      {
+        "name": "Kinematics & Integration",
+        "duration": "3-4 hours",
+        "learn": "Position/velocity/acceleration, Euler vs Verlet vs RK4 integration.",
+        "implement": "Implement explicit Euler, semi-implicit Euler, and Verlet integrators.",
+        "mini_project": "Build a 'Projectile Motion Sandbox' comparing integrator accuracy.",
+        "subtopics": [
+          {
+            "name": "Explicit vs Semi-Implicit Euler",
+            "duration": "1 hour",
+            "learn": "Integration error, stability basics.",
+            "implement": "Code both integrators for a falling ball.",
+            "mini_project": "Mini: side-by-side drift comparison tool."
+          },
+          {
+            "name": "Verlet Integration",
+            "duration": "1 hour",
+            "learn": "Position-based dynamics, energy conservation.",
+            "implement": "Implement Verlet integrator for a bouncing ball.",
+            "mini_project": "Mini: cloth-point simulation (single strand)."
+          },
+          {
+            "name": "Runge-Kutta (RK4)",
+            "duration": "1 hour",
+            "learn": "Higher-order accuracy, when it's worth the cost.",
+            "implement": "Implement RK4 for orbital motion.",
+            "mini_project": "Mini: simple 2-body orbit simulator."
+          }
+        ]
+      },
+      {
+        "name": "Rigid Body Dynamics",
+        "duration": "3-4 hours",
+        "learn": "Mass, center of mass, moment of inertia, torque, angular momentum.",
+        "implement": "Implement rigid body class with linear + angular state.",
+        "mini_project": "Build a 'Spinning Object Playground' with torque application.",
+        "subtopics": [
+          {
+            "name": "Mass Properties",
+            "duration": "1 hour",
+            "learn": "Center of mass & inertia tensor for polygons.",
+            "implement": "Compute COM/inertia for user-drawn 2D polygon.",
+            "mini_project": "Mini: shape-balance visualizer."
+          },
+          {
+            "name": "Force & Torque Application",
+            "duration": "1 hour",
+            "learn": "Applying forces at offsets, resulting torque.",
+            "implement": "Implement apply-force-at-point.",
+            "mini_project": "Mini: seesaw balance simulator."
+          },
+          {
+            "name": "Angular Dynamics",
+            "duration": "1 hour",
+            "learn": "Angular velocity, momentum conservation.",
+            "implement": "Simulate free-spinning rigid body.",
+            "mini_project": "Mini: tumbling-satellite demo."
+          }
+        ]
+      },
+      {
+        "name": "Broadphase Collision Detection",
+        "duration": "3-4 hours",
+        "learn": "AABB, bounding volume hierarchies, spatial partitioning (grid/quadtree).",
+        "implement": "Implement AABB overlap tests + a uniform spatial grid.",
+        "mini_project": "Build a 'Particle Swarm Collision Culler' visual demo.",
+        "subtopics": [
+          {
+            "name": "AABB & Bounding Volumes",
+            "duration": "1 hour",
+            "learn": "AABB/OBB construction and overlap tests.",
+            "implement": "Implement AABB-vs-AABB test.",
+            "mini_project": "Mini: bounding-box visual debugger."
+          },
+          {
+            "name": "Spatial Partitioning",
+            "duration": "1 hour",
+            "learn": "Uniform grids, quadtrees for broadphase.",
+            "implement": "Implement a quadtree for 2D collision culling.",
+            "mini_project": "Mini: 1000-particle culling benchmark."
+          },
+          {
+            "name": "BVH Basics",
+            "duration": "1 hour",
+            "learn": "Bounding volume hierarchy construction/traversal.",
+            "implement": "Build a simple static BVH.",
+            "mini_project": "Mini: raycast-vs-BVH demo."
+          }
+        ]
+      },
+      {
+        "name": "Narrowphase Collision & Resolution",
+        "duration": "3-4 hours",
+        "learn": "SAT, GJK/EPA concepts, contact manifolds, impulse resolution.",
+        "implement": "Implement SAT for convex polygon collision detection.",
+        "mini_project": "Build a '2D Physics Sandbox' with colliding, bouncing polygons.",
+        "subtopics": [
+          {
+            "name": "Separating Axis Theorem",
+            "duration": "1 hour",
+            "learn": "SAT for convex polygon overlap.",
+            "implement": "Implement SAT collision test.",
+            "mini_project": "Mini: polygon-collision visual demo."
+          },
+          {
+            "name": "GJK/EPA Concepts",
+            "duration": "1 hour",
+            "learn": "Simplex construction, penetration depth extraction (conceptual + simplified impl).",
+            "implement": "Implement simplified GJK for circles/polygons.",
+            "mini_project": "Mini: contact-point visualizer."
+          },
+          {
+            "name": "Impulse-Based Resolution",
+            "duration": "1 hour",
+            "learn": "Restitution, impulse solver, positional correction.",
+            "implement": "Implement impulse resolution for 2 colliding bodies.",
+            "mini_project": "Mini: billiard-ball collision demo."
+          }
+        ]
+      },
+      {
+        "name": "Constraints & Solvers",
+        "duration": "3-4 hours",
+        "learn": "Constraint types (distance, hinge, spring), sequential impulse solver.",
+        "implement": "Implement a distance-constraint solver (verlet-based).",
+        "mini_project": "Build a 'Rope/Cloth Simulator' using constraint solving.",
+        "subtopics": [
+          {
+            "name": "Distance Constraints",
+            "duration": "1 hour",
+            "learn": "Rope/rod behavior via constraint projection.",
+            "implement": "Implement a rope of connected points.",
+            "mini_project": "Mini: swinging rope demo."
+          },
+          {
+            "name": "Spring Constraints",
+            "duration": "1 hour",
+            "learn": "Hooke's law, damping.",
+            "implement": "Implement spring-damper system.",
+            "mini_project": "Mini: jelly-cube wobble demo."
+          },
+          {
+            "name": "Sequential Impulse Solver",
+            "duration": "1 hour",
+            "learn": "Iterative constraint satisfaction basics.",
+            "implement": "Implement a mini iterative solver for a stack of boxes.",
+            "mini_project": "Mini: box-stacking stability test."
+          }
+        ]
+      }
+    ],
+    "C++ Game Engine": [
+      {
+        "name": "Game Loop & Timing",
+        "duration": "3-4 hours",
+        "learn": "Fixed vs variable timestep, frame pacing, delta time.",
+        "implement": "Implement a fixed-timestep game loop with interpolation.",
+        "mini_project": "Build a 'Bouncing Ball' demo at stable 60Hz physics regardless of render FPS.",
+        "subtopics": [
+          {
+            "name": "Variable Timestep Loop",
+            "duration": "1 hour",
+            "learn": "Delta-time basics, frame-dependent bugs.",
+            "implement": "Implement basic while-loop with delta time.",
+            "mini_project": "Mini: FPS counter overlay."
+          },
+          {
+            "name": "Fixed Timestep + Interpolation",
+            "duration": "1 hour",
+            "learn": "Decoupling physics/render rates.",
+            "implement": "Implement fixed-update accumulator pattern.",
+            "mini_project": "Mini: physics-stability comparison demo."
+          },
+          {
+            "name": "Game States & Scenes",
+            "duration": "1 hour",
+            "learn": "State machine for menu/play/pause.",
+            "implement": "Implement a simple scene manager.",
+            "mini_project": "Mini: menu-to-gameplay transition demo."
+          }
+        ]
+      },
+      {
+        "name": "Memory Management for Games",
+        "duration": "3-4 hours",
+        "learn": "Custom allocators, object pools, cache locality.",
+        "implement": "Implement a linear allocator and an object pool allocator.",
+        "mini_project": "Build a 'Bullet-Hell Particle Pool' avoiding per-frame heap allocation.",
+        "subtopics": [
+          {
+            "name": "Linear & Stack Allocators",
+            "duration": "1 hour",
+            "learn": "Arena allocation patterns.",
+            "implement": "Implement a linear allocator with reset.",
+            "mini_project": "Mini: per-frame scratch allocator demo."
+          },
+          {
+            "name": "Object Pools",
+            "duration": "1 hour",
+            "learn": "Pre-allocated reusable object pattern.",
+            "implement": "Implement a generic object pool template.",
+            "mini_project": "Mini: bullet pool for a shooter prototype."
+          },
+          {
+            "name": "Cache Locality & Fragmentation",
+            "duration": "1 hour",
+            "learn": "Data-oriented layout, AoS vs SoA.",
+            "implement": "Benchmark AoS vs SoA update loop.",
+            "mini_project": "Mini: particle-update perf comparison tool."
+          }
+        ]
+      },
+      {
+        "name": "Entity Component System (ECS)",
+        "duration": "3-4 hours",
+        "learn": "Entities, components, systems, component masks, sparse sets.",
+        "implement": "Implement a minimal ECS supporting add/remove component + system iteration.",
+        "mini_project": "Build a 'Top-Down Shooter Prototype' using your ECS.",
+        "subtopics": [
+          {
+            "name": "ECS Core Concepts",
+            "duration": "1 hour",
+            "learn": "Entity IDs, component storage strategies.",
+            "implement": "Implement entity manager + component arrays.",
+            "mini_project": "Mini: entity spawner/inspector CLI."
+          },
+          {
+            "name": "Systems & Queries",
+            "duration": "1 hour",
+            "learn": "Iterating entities matching component masks.",
+            "implement": "Implement movement + render systems.",
+            "mini_project": "Mini: moving-shapes demo driven by systems."
+          },
+          {
+            "name": "ECS Performance Patterns",
+            "duration": "1 hour",
+            "learn": "Sparse sets, archetypes overview.",
+            "implement": "Implement sparse-set component storage.",
+            "mini_project": "Mini: 10k-entity update benchmark."
+          }
+        ]
+      },
+      {
+        "name": "Rendering Pipeline Basics",
+        "duration": "3-4 hours",
+        "learn": "Vertex/fragment shaders, render loop, sprite batching (OpenGL basics).",
+        "implement": "Set up an OpenGL window rendering a textured quad.",
+        "mini_project": "Build a '2D Sprite Renderer' with batched draw calls.",
+        "subtopics": [
+          {
+            "name": "OpenGL Setup & Triangle",
+            "duration": "1 hour",
+            "learn": "Window/context setup, first triangle.",
+            "implement": "Render a colored triangle with GLFW+GLAD.",
+            "mini_project": "Mini: color-shifting triangle demo."
+          },
+          {
+            "name": "Shaders & Textures",
+            "duration": "1 hour",
+            "learn": "Vertex/fragment shader basics, texture mapping.",
+            "implement": "Render a textured quad (sprite).",
+            "mini_project": "Mini: animated sprite-sheet player."
+          },
+          {
+            "name": "Sprite Batching",
+            "duration": "1 hour",
+            "learn": "Reducing draw calls, batching quads.",
+            "implement": "Implement a basic sprite batch renderer.",
+            "mini_project": "Mini: 500-sprite stress-test demo."
+          }
+        ]
+      },
+      {
+        "name": "Input, Audio & Resource Management",
+        "duration": "3-4 hours",
+        "learn": "Input abstraction, audio playback basics, asset loading/caching.",
+        "implement": "Implement an input manager + resource cache (textures/sounds).",
+        "mini_project": "Build a 'Playable Mini Platformer' with input, sound and sprite assets.",
+        "subtopics": [
+          {
+            "name": "Input Handling",
+            "duration": "1 hour",
+            "learn": "Keyboard/mouse abstraction layer.",
+            "implement": "Implement an input-manager singleton.",
+            "mini_project": "Mini: configurable key-binding demo."
+          },
+          {
+            "name": "Audio Basics",
+            "duration": "1 hour",
+            "learn": "Loading/playing sound effects & music (e.g. miniaudio).",
+            "implement": "Integrate a lightweight audio library.",
+            "mini_project": "Mini: sound-triggered-by-collision demo."
+          },
+          {
+            "name": "Resource/Asset Manager",
+            "duration": "1 hour",
+            "learn": "Caching textures/sounds by ID, avoiding duplicate loads.",
+            "implement": "Implement a generic resource cache.",
+            "mini_project": "Mini: asset-loading screen with progress bar."
+          }
+        ]
+      },
+      {
+        "name": "Physics/Game Engine Integration",
+        "duration": "3-4 hours",
+        "learn": "Wiring your physics engine into the ECS + render loop; game feel.",
+        "implement": "Integrate collision + rigid body systems into ECS as components.",
+        "mini_project": "Build a complete mini-game: 'Platformer with Physics' combining all subsystems.",
+        "subtopics": [
+          {
+            "name": "Physics Component Wiring",
+            "duration": "1 hour",
+            "learn": "RigidBody/Collider as ECS components.",
+            "implement": "Add physics components + physics system.",
+            "mini_project": "Mini: falling-and-bouncing platformer objects."
+          },
+          {
+            "name": "Camera & Game Feel",
+            "duration": "1 hour",
+            "learn": "Camera follow, screen shake, juice.",
+            "implement": "Implement smooth camera-follow + shake.",
+            "mini_project": "Mini: 'juicy' collision feedback demo."
+          },
+          {
+            "name": "Capstone Integration",
+            "duration": "1 hour",
+            "learn": "Combine rendering, ECS, physics, input, audio.",
+            "implement": "Wire all subsystems into one playable level.",
+            "mini_project": "Mini Project: playable mini-platformer level with goal & sound."
+          }
+        ]
+      }
+    ],
+    "Machine Learning": [
+      {
+        "name": "Python & Data Foundations",
+        "duration": "3-4 hours",
+        "learn": "NumPy, Pandas, data cleaning, EDA, visualization (Matplotlib/Seaborn).",
+        "implement": "Clean and explore a real messy dataset end-to-end.",
+        "mini_project": "Build an 'EDA Report Generator' for any CSV input.",
+        "subtopics": [
+          {
+            "name": "NumPy & Vectorization",
+            "duration": "1 hour",
+            "learn": "Arrays, broadcasting, vectorized ops.",
+            "implement": "Rewrite loop-based code using NumPy vectorization.",
+            "mini_project": "Mini: matrix-ops calculator."
+          },
+          {
+            "name": "Pandas & Data Cleaning",
+            "duration": "1 hour",
+            "learn": "Missing values, dtypes, groupby, merges.",
+            "implement": "Clean a messy real-world CSV dataset.",
+            "mini_project": "Mini: sales-data cleaner + summary."
+          },
+          {
+            "name": "EDA & Visualization",
+            "duration": "1 hour",
+            "learn": "Distributions, correlations, outlier detection.",
+            "implement": "Produce EDA plots for a dataset.",
+            "mini_project": "Mini: auto-EDA report script."
+          }
+        ]
+      },
+      {
+        "name": "Regression & Regularization",
+        "duration": "3-4 hours",
+        "learn": "Linear/polynomial regression, gradient descent, Ridge/Lasso, bias-variance.",
+        "implement": "Implement linear regression from scratch with gradient descent.",
+        "mini_project": "Build a 'House Price Predictor' with regularization comparison.",
+        "subtopics": [
+          {
+            "name": "Linear Regression from Scratch",
+            "duration": "1 hour",
+            "learn": "Cost function, gradient descent derivation.",
+            "implement": "Implement gradient descent linear regression (no sklearn).",
+            "mini_project": "Mini: single-feature price predictor."
+          },
+          {
+            "name": "Polynomial & Regularized Regression",
+            "duration": "1 hour",
+            "learn": "Overfitting, Ridge/Lasso, L1/L2.",
+            "implement": "Implement Ridge/Lasso using sklearn, compare.",
+            "mini_project": "Mini: overfitting visual demo (degree sweep)."
+          },
+          {
+            "name": "Bias-Variance & Cross-Validation",
+            "duration": "1 hour",
+            "learn": "Train/val/test split, k-fold CV, learning curves.",
+            "implement": "Implement k-fold CV from scratch.",
+            "mini_project": "Mini: learning-curve plotting tool."
+          }
+        ]
+      },
+      {
+        "name": "Classification Algorithms",
+        "duration": "3-4 hours",
+        "learn": "Logistic regression, KNN, SVM, decision trees, evaluation metrics.",
+        "implement": "Implement logistic regression from scratch; use sklearn for KNN/SVM/trees.",
+        "mini_project": "Build a 'Spam Classifier' comparing 4 algorithms on the same dataset.",
+        "subtopics": [
+          {
+            "name": "Logistic Regression & Metrics",
+            "duration": "1 hour",
+            "learn": "Sigmoid, decision boundary, precision/recall/F1/ROC-AUC.",
+            "implement": "Implement logistic regression + confusion matrix.",
+            "mini_project": "Mini: binary classifier evaluator tool."
+          },
+          {
+            "name": "KNN & SVM",
+            "duration": "1 hour",
+            "learn": "Distance metrics, kernel trick intuition.",
+            "implement": "Train KNN and SVM classifiers, tune k/kernel.",
+            "mini_project": "Mini: decision-boundary visualizer."
+          },
+          {
+            "name": "Decision Trees",
+            "duration": "1 hour",
+            "learn": "Gini/entropy, splitting, overfitting/pruning.",
+            "implement": "Implement a basic decision tree from scratch.",
+            "mini_project": "Mini: interactive tree-depth-vs-accuracy demo."
+          }
+        ]
+      },
+      {
+        "name": "Ensemble Methods",
+        "duration": "3-4 hours",
+        "learn": "Bagging, boosting, Random Forest, XGBoost/LightGBM, stacking.",
+        "implement": "Train Random Forest and XGBoost on a tabular dataset, tune hyperparameters.",
+        "mini_project": "Build a Kaggle-style 'Tabular Prediction Pipeline' with ensembling.",
+        "subtopics": [
+          {
+            "name": "Bagging & Random Forests",
+            "duration": "1 hour",
+            "learn": "Bootstrap aggregation, feature importance.",
+            "implement": "Train Random Forest, extract feature importances.",
+            "mini_project": "Mini: feature-importance dashboard."
+          },
+          {
+            "name": "Boosting (XGBoost/LightGBM)",
+            "duration": "1 hour",
+            "learn": "Gradient boosting intuition, hyperparameters.",
+            "implement": "Train XGBoost with early stopping.",
+            "mini_project": "Mini: boosted-model leaderboard script."
+          },
+          {
+            "name": "Stacking & Model Selection",
+            "duration": "1 hour",
+            "learn": "Combining models, GridSearch/Optuna basics.",
+            "implement": "Implement a stacked ensemble.",
+            "mini_project": "Mini: automated model-comparison report."
+          }
+        ]
+      },
+      {
+        "name": "Unsupervised Learning",
+        "duration": "3-4 hours",
+        "learn": "K-Means, hierarchical clustering, DBSCAN, PCA, dimensionality reduction.",
+        "implement": "Implement K-Means from scratch; apply PCA for visualization.",
+        "mini_project": "Build a 'Customer Segmentation Tool' using clustering + PCA.",
+        "subtopics": [
+          {
+            "name": "K-Means Clustering",
+            "duration": "1 hour",
+            "learn": "Centroid init, elbow method, silhouette score.",
+            "implement": "Implement K-Means from scratch.",
+            "mini_project": "Mini: elbow-method auto-selector."
+          },
+          {
+            "name": "Hierarchical & Density Clustering",
+            "duration": "1 hour",
+            "learn": "Dendrograms, DBSCAN for noisy data.",
+            "implement": "Apply DBSCAN + hierarchical clustering, compare.",
+            "mini_project": "Mini: anomaly-detection-via-clustering demo."
+          },
+          {
+            "name": "PCA & Dimensionality Reduction",
+            "duration": "1 hour",
+            "learn": "Variance explained, eigenvectors intuition.",
+            "implement": "Implement PCA from scratch (via SVD).",
+            "mini_project": "Mini: 2D visualization of high-dim data."
+          }
+        ]
+      },
+      {
+        "name": "Feature Engineering & ML Pipelines",
+        "duration": "3-4 hours",
+        "learn": "Encoding, scaling, feature selection, sklearn Pipelines, model deployment basics.",
+        "implement": "Build an end-to-end sklearn Pipeline with preprocessing + model.",
+        "mini_project": "Deploy a trained model behind a simple Flask/FastAPI endpoint.",
+        "subtopics": [
+          {
+            "name": "Encoding & Scaling",
+            "duration": "1 hour",
+            "learn": "One-hot, label encoding, standardization/normalization.",
+            "implement": "Build a preprocessing pipeline with ColumnTransformer.",
+            "mini_project": "Mini: reusable preprocessing template."
+          },
+          {
+            "name": "Feature Selection",
+            "duration": "1 hour",
+            "learn": "Correlation filtering, RFE, importance-based selection.",
+            "implement": "Implement RFE on a dataset.",
+            "mini_project": "Mini: feature-selection comparison report."
+          },
+          {
+            "name": "Model Serving Basics",
+            "duration": "1 hour",
+            "learn": "Pickling models, serving via API.",
+            "implement": "Serve a trained model via FastAPI endpoint.",
+            "mini_project": "Mini: '/predict' REST endpoint demo."
+          }
+        ]
+      }
+    ],
+    "Deep Learning": [
+      {
+        "name": "Neural Network Foundations",
+        "duration": "3-4 hours",
+        "learn": "Perceptron, forward/backprop, activation functions, loss functions.",
+        "implement": "Implement a neural network from scratch with NumPy (forward+backprop).",
+        "mini_project": "Build a 'Digit Classifier' (MNIST) using your from-scratch NN.",
+        "subtopics": [
+          {
+            "name": "Perceptron & Forward Pass",
+            "duration": "1 hour",
+            "learn": "Weights, bias, activation functions (ReLU/sigmoid/tanh).",
+            "implement": "Implement forward pass with NumPy.",
+            "mini_project": "Mini: single-neuron logic-gate learner."
+          },
+          {
+            "name": "Backpropagation",
+            "duration": "1 hour",
+            "learn": "Chain rule, gradient computation, weight updates.",
+            "implement": "Implement backprop from scratch for a 2-layer net.",
+            "mini_project": "Mini: XOR-problem solver from scratch."
+          },
+          {
+            "name": "Loss Functions & Optimizers",
+            "duration": "1 hour",
+            "learn": "MSE, cross-entropy, SGD/Adam/RMSprop.",
+            "implement": "Implement SGD and Adam optimizer manually.",
+            "mini_project": "Mini: optimizer-comparison training curve plot."
+          }
+        ]
+      },
+      {
+        "name": "PyTorch/TensorFlow Fundamentals",
+        "duration": "3-4 hours",
+        "learn": "Tensors, autograd, nn.Module, training loops, GPU basics.",
+        "implement": "Rebuild the from-scratch NN using PyTorch (or TensorFlow).",
+        "mini_project": "Build an 'Image Classifier' on CIFAR-10 using a framework.",
+        "subtopics": [
+          {
+            "name": "Tensors & Autograd",
+            "duration": "1 hour",
+            "learn": "Tensor ops, automatic differentiation.",
+            "implement": "Implement gradient descent using autograd.",
+            "mini_project": "Mini: autograd-powered curve-fitting tool."
+          },
+          {
+            "name": "nn.Module & Training Loops",
+            "duration": "1 hour",
+            "learn": "Defining models, DataLoader, train/eval loop.",
+            "implement": "Build a training loop with train/val split.",
+            "mini_project": "Mini: reusable training-loop template."
+          },
+          {
+            "name": "Regularization in DL",
+            "duration": "1 hour",
+            "learn": "Dropout, batch norm, weight decay, early stopping.",
+            "implement": "Add dropout/batchnorm to a model, compare results.",
+            "mini_project": "Mini: overfitting-vs-regularized training comparison."
+          }
+        ]
+      },
+      {
+        "name": "Convolutional Neural Networks",
+        "duration": "3-4 hours",
+        "learn": "Convolutions, pooling, CNN architectures (LeNet/ResNet concepts), transfer learning.",
+        "implement": "Build a CNN from scratch for image classification.",
+        "mini_project": "Build an 'Image Classifier App' using transfer learning (ResNet/MobileNet).",
+        "subtopics": [
+          {
+            "name": "Convolution & Pooling Ops",
+            "duration": "1 hour",
+            "learn": "Kernels, stride, padding, feature maps.",
+            "implement": "Implement a conv layer manually (educational).",
+            "mini_project": "Mini: edge-detection filter visualizer."
+          },
+          {
+            "name": "CNN Architectures",
+            "duration": "1 hour",
+            "learn": "LeNet, VGG, ResNet skip-connections concept.",
+            "implement": "Build and train a small CNN on CIFAR-10.",
+            "mini_project": "Mini: architecture-comparison benchmark."
+          },
+          {
+            "name": "Transfer Learning",
+            "duration": "1 hour",
+            "learn": "Fine-tuning pretrained models, feature extraction.",
+            "implement": "Fine-tune a pretrained ResNet on a custom dataset.",
+            "mini_project": "Mini: custom image classifier (e.g. plant disease detector)."
+          }
+        ]
+      },
+      {
+        "name": "Sequence Models & RNNs",
+        "duration": "3-4 hours",
+        "learn": "RNN/LSTM/GRU, sequence-to-sequence, vanishing gradients.",
+        "implement": "Implement an LSTM-based model for a sequence task.",
+        "mini_project": "Build a 'Next-Word Predictor' using LSTM.",
+        "subtopics": [
+          {
+            "name": "RNN Fundamentals",
+            "duration": "1 hour",
+            "learn": "Recurrence, vanishing/exploding gradients.",
+            "implement": "Implement a vanilla RNN for sequence prediction.",
+            "mini_project": "Mini: character-level text generator (simple)."
+          },
+          {
+            "name": "LSTM & GRU",
+            "duration": "1 hour",
+            "learn": "Gating mechanisms, long-term dependencies.",
+            "implement": "Build an LSTM model with PyTorch.",
+            "mini_project": "Mini: sentiment classifier using LSTM."
+          },
+          {
+            "name": "Sequence-to-Sequence",
+            "duration": "1 hour",
+            "learn": "Encoder-decoder architecture basics.",
+            "implement": "Implement a basic seq2seq model.",
+            "mini_project": "Mini: simple date-format translator (seq2seq)."
+          }
+        ]
+      },
+      {
+        "name": "Transformers & Attention",
+        "duration": "3-4 hours",
+        "learn": "Self-attention, multi-head attention, positional encoding, Transformer architecture.",
+        "implement": "Implement scaled dot-product attention from scratch.",
+        "mini_project": "Build a 'Mini-Transformer' for a toy translation/classification task.",
+        "subtopics": [
+          {
+            "name": "Attention Mechanism",
+            "duration": "1 hour",
+            "learn": "Query/Key/Value, scaled dot-product attention.",
+            "implement": "Implement self-attention from scratch in NumPy/PyTorch.",
+            "mini_project": "Mini: attention-weight visualizer."
+          },
+          {
+            "name": "Transformer Architecture",
+            "duration": "1 hour",
+            "learn": "Multi-head attention, positional encoding, encoder/decoder blocks.",
+            "implement": "Build a minimal transformer encoder block.",
+            "mini_project": "Mini: toy sequence-classification transformer."
+          },
+          {
+            "name": "Pretrained Transformers (BERT/GPT family)",
+            "duration": "1 hour",
+            "learn": "Using HuggingFace transformers, tokenizers, fine-tuning.",
+            "implement": "Fine-tune a small pretrained model (e.g. DistilBERT) on a task.",
+            "mini_project": "Mini: text-classification app using HuggingFace."
+          }
+        ]
+      },
+      {
+        "name": "Model Training at Scale & MLOps Basics",
+        "duration": "3-4 hours",
+        "learn": "Mixed precision, checkpointing, experiment tracking, model export/serving.",
+        "implement": "Add checkpointing + experiment tracking (e.g. Weights & Biases) to a training run.",
+        "mini_project": "Build a 'Trainable & Deployable DL Pipeline' with logging + export to ONNX.",
+        "subtopics": [
+          {
+            "name": "Experiment Tracking",
+            "duration": "1 hour",
+            "learn": "Logging metrics/params (W&B/TensorBoard).",
+            "implement": "Integrate TensorBoard or W&B into a training loop.",
+            "mini_project": "Mini: training-dashboard for an experiment."
+          },
+          {
+            "name": "Checkpointing & Reproducibility",
+            "duration": "1 hour",
+            "learn": "Saving/loading models, seeding, config management.",
+            "implement": "Implement checkpoint save/resume logic.",
+            "mini_project": "Mini: resumable-training demo."
+          },
+          {
+            "name": "Model Export & Serving",
+            "duration": "1 hour",
+            "learn": "ONNX export, TorchScript, serving via API.",
+            "implement": "Export a trained model to ONNX and serve it.",
+            "mini_project": "Mini: '/predict' endpoint serving an ONNX model."
+          }
+        ]
+      }
+    ],
+    "Other ML Specializations (CV / NLP / RL / Time-Series)": [
+      {
+        "name": "Computer Vision Beyond Classification",
+        "duration": "3-4 hours",
+        "learn": "Object detection (YOLO concept), segmentation, OpenCV pipelines.",
+        "implement": "Run and fine-tune a YOLO model for object detection.",
+        "mini_project": "Build a 'Real-Time Object Detector' webcam app using OpenCV + YOLO.",
+        "subtopics": [
+          {
+            "name": "OpenCV Fundamentals",
+            "duration": "1 hour",
+            "learn": "Image ops, filters, contours, color spaces.",
+            "implement": "Build an image-processing pipeline with OpenCV.",
+            "mini_project": "Mini: document-edge scanner app."
+          },
+          {
+            "name": "Object Detection",
+            "duration": "1 hour",
+            "learn": "Bounding boxes, IoU, anchor boxes, YOLO/SSD concept.",
+            "implement": "Run inference with a pretrained YOLO model.",
+            "mini_project": "Mini: custom object counter (e.g. count cars in a video)."
+          },
+          {
+            "name": "Image Segmentation",
+            "duration": "1 hour",
+            "learn": "Semantic vs instance segmentation basics.",
+            "implement": "Run a pretrained segmentation model (e.g. U-Net/SAM).",
+            "mini_project": "Mini: background-removal tool."
+          }
+        ]
+      },
+      {
+        "name": "Natural Language Processing",
+        "duration": "3-4 hours",
+        "learn": "Tokenization, embeddings (Word2Vec/GloVe), NER, sentiment, topic modeling.",
+        "implement": "Build a text-classification pipeline with word embeddings.",
+        "mini_project": "Build a 'News Article Summarizer & Sentiment Tagger'.",
+        "subtopics": [
+          {
+            "name": "Text Preprocessing & Embeddings",
+            "duration": "1 hour",
+            "learn": "Tokenization, TF-IDF, Word2Vec/GloVe intuition.",
+            "implement": "Implement TF-IDF vectorizer + train Word2Vec.",
+            "mini_project": "Mini: document-similarity search tool."
+          },
+          {
+            "name": "NER & POS Tagging",
+            "duration": "1 hour",
+            "learn": "Named entity recognition, spaCy pipelines.",
+            "implement": "Build an NER pipeline with spaCy.",
+            "mini_project": "Mini: resume-parser (extract names/skills/dates)."
+          },
+          {
+            "name": "Sentiment & Topic Modeling",
+            "duration": "1 hour",
+            "learn": "Sentiment classifiers, LDA topic modeling.",
+            "implement": "Implement sentiment analysis + LDA topic extraction.",
+            "mini_project": "Mini: product-review sentiment dashboard."
+          }
+        ]
+      },
+      {
+        "name": "Reinforcement Learning",
+        "duration": "3-4 hours",
+        "learn": "MDPs, Q-learning, policy gradients, reward shaping.",
+        "implement": "Implement tabular Q-learning for a grid-world environment.",
+        "mini_project": "Build a 'Game-Playing Agent' (e.g. CartPole/FrozenLake via Gymnasium).",
+        "subtopics": [
+          {
+            "name": "MDP & Q-Learning",
+            "duration": "1 hour",
+            "learn": "States, actions, rewards, Bellman equation.",
+            "implement": "Implement Q-learning on FrozenLake (Gymnasium).",
+            "mini_project": "Mini: grid-world pathfinding agent."
+          },
+          {
+            "name": "Deep Q-Networks (DQN)",
+            "duration": "1 hour",
+            "learn": "Experience replay, target networks.",
+            "implement": "Implement a basic DQN agent for CartPole.",
+            "mini_project": "Mini: CartPole-balancing agent."
+          },
+          {
+            "name": "Policy Gradient Methods",
+            "duration": "1 hour",
+            "learn": "REINFORCE, actor-critic intuition.",
+            "implement": "Implement REINFORCE for a simple environment.",
+            "mini_project": "Mini: policy-gradient agent comparison vs DQN."
+          }
+        ]
+      },
+      {
+        "name": "Time-Series & Forecasting",
+        "duration": "3-4 hours",
+        "learn": "Stationarity, ARIMA, Prophet, LSTM-based forecasting.",
+        "implement": "Build and evaluate an ARIMA and an LSTM forecasting model.",
+        "mini_project": "Build a 'Stock/Demand Forecasting Dashboard'.",
+        "subtopics": [
+          {
+            "name": "Time-Series Fundamentals",
+            "duration": "1 hour",
+            "learn": "Trend/seasonality, stationarity, ACF/PACF.",
+            "implement": "Decompose a time series and test stationarity.",
+            "mini_project": "Mini: seasonality-decomposition visualizer."
+          },
+          {
+            "name": "Statistical Forecasting",
+            "duration": "1 hour",
+            "learn": "ARIMA/SARIMA, Prophet.",
+            "implement": "Fit ARIMA and Prophet models, compare forecasts.",
+            "mini_project": "Mini: sales-forecast comparison tool."
+          },
+          {
+            "name": "Deep Learning Forecasting",
+            "duration": "1 hour",
+            "learn": "LSTM/Temporal CNN for time-series.",
+            "implement": "Build an LSTM forecaster with sliding windows.",
+            "mini_project": "Mini: multi-step stock-price forecaster."
+          }
+        ]
+      }
+    ],
+    "AI Systems (Agentic / Generative / RAG / Multi-Agent)": [
+      {
+        "name": "Generative AI Foundations",
+        "duration": "3-4 hours",
+        "learn": "LLM basics, prompting, tokens/context windows, temperature/sampling.",
+        "implement": "Call an LLM API and experiment with prompting strategies.",
+        "mini_project": "Build a 'Prompt Playground' comparing outputs across prompt styles.",
+        "subtopics": [
+          {
+            "name": "How LLMs Generate Text",
+            "duration": "1 hour",
+            "learn": "Next-token prediction, temperature, top-p/top-k sampling.",
+            "implement": "Call an API varying temperature/top-p, compare outputs.",
+            "mini_project": "Mini: sampling-parameter visual comparison tool."
+          },
+          {
+            "name": "Prompt Engineering",
+            "duration": "1 hour",
+            "learn": "Zero/few-shot, chain-of-thought, system prompts.",
+            "implement": "Write and test 5 prompting techniques on the same task.",
+            "mini_project": "Mini: prompt-technique benchmark script."
+          },
+          {
+            "name": "Structured Outputs & Function Calling",
+            "duration": "1 hour",
+            "learn": "JSON mode, tool/function-calling schemas.",
+            "implement": "Implement a function-calling LLM request.",
+            "mini_project": "Mini: LLM-powered data-extraction tool (text\u2192JSON)."
+          }
+        ]
+      },
+      {
+        "name": "Retrieval-Augmented Generation (RAG)",
+        "duration": "3-4 hours",
+        "learn": "Embeddings, vector databases, chunking, retrieval pipelines.",
+        "implement": "Build a basic RAG pipeline: chunk docs \u2192 embed \u2192 store \u2192 retrieve \u2192 generate.",
+        "mini_project": "Build a 'Chat With Your PDFs' RAG app.",
+        "subtopics": [
+          {
+            "name": "Embeddings & Vector Search",
+            "duration": "1 hour",
+            "learn": "Embedding models, cosine similarity, ANN search.",
+            "implement": "Generate embeddings and do similarity search manually.",
+            "mini_project": "Mini: semantic-search-over-notes tool."
+          },
+          {
+            "name": "Chunking & Vector Databases",
+            "duration": "1 hour",
+            "learn": "Chunk strategies, overlap, using a vector DB (Chroma/FAISS/Pinecone).",
+            "implement": "Set up a vector DB and index a document set.",
+            "mini_project": "Mini: document-indexing pipeline."
+          },
+          {
+            "name": "End-to-End RAG Pipeline",
+            "duration": "1 hour",
+            "learn": "Retriever + generator orchestration, citations/grounding.",
+            "implement": "Wire retrieval into an LLM prompt with source citations.",
+            "mini_project": "Mini: 'Chat with your PDF' assistant."
+          }
+        ]
+      },
+      {
+        "name": "Agentic AI Fundamentals",
+        "duration": "3-4 hours",
+        "learn": "Agent loops (ReAct), tool use, planning, memory for agents.",
+        "implement": "Implement a basic ReAct-style agent that can call 2-3 tools.",
+        "mini_project": "Build a 'Research Agent' that searches the web and summarizes findings.",
+        "subtopics": [
+          {
+            "name": "ReAct & Agent Loops",
+            "duration": "1 hour",
+            "learn": "Reasoning-acting loop, tool-selection logic.",
+            "implement": "Implement a ReAct loop with a calculator + search tool.",
+            "mini_project": "Mini: math-word-problem-solving agent."
+          },
+          {
+            "name": "Tool Use & Function Calling for Agents",
+            "duration": "1 hour",
+            "learn": "Designing tool schemas, error handling, tool routing.",
+            "implement": "Build 3 custom tools and wire them to an agent.",
+            "mini_project": "Mini: 'file-organizer agent' using filesystem tools."
+          },
+          {
+            "name": "Agent Memory & Planning",
+            "duration": "1 hour",
+            "learn": "Short vs long-term memory, task decomposition.",
+            "implement": "Add persistent memory (vector store) to an agent.",
+            "mini_project": "Mini: personal-assistant agent that remembers past tasks."
+          }
+        ]
+      },
+      {
+        "name": "Multi-Agent Systems (MAS)",
+        "duration": "3-4 hours",
+        "learn": "Agent orchestration patterns, agent-to-agent communication, coordinator/worker patterns.",
+        "implement": "Build a 2-3 agent system with a coordinator delegating to specialist agents.",
+        "mini_project": "Build a 'Multi-Agent Research Team' (planner + researcher + writer agents).",
+        "subtopics": [
+          {
+            "name": "Orchestration Patterns",
+            "duration": "1 hour",
+            "learn": "Sequential, hierarchical, and parallel agent patterns.",
+            "implement": "Implement a coordinator agent delegating subtasks.",
+            "mini_project": "Mini: task-splitting coordinator demo."
+          },
+          {
+            "name": "Agent-to-Agent Communication",
+            "duration": "1 hour",
+            "learn": "Message passing, shared state/blackboard pattern.",
+            "implement": "Implement message-passing between 2 agents.",
+            "mini_project": "Mini: debate-simulation between two agents."
+          },
+          {
+            "name": "Frameworks (LangGraph/CrewAI/AutoGen)",
+            "duration": "1 hour",
+            "learn": "Using a multi-agent framework for orchestration.",
+            "implement": "Rebuild your multi-agent system using a framework.",
+            "mini_project": "Mini: framework-based content-creation pipeline (research\u2192draft\u2192edit agents)."
+          }
+        ]
+      },
+      {
+        "name": "Evaluation, Safety & Guardrails",
+        "duration": "3-4 hours",
+        "learn": "Hallucination mitigation, evaluation metrics for LLM apps, guardrails/red-teaming basics.",
+        "implement": "Build an evaluation harness scoring RAG/agent outputs against ground truth.",
+        "mini_project": "Build an 'LLM App Eval Dashboard' tracking accuracy/latency/cost over test cases.",
+        "subtopics": [
+          {
+            "name": "LLM Evaluation Basics",
+            "duration": "1 hour",
+            "learn": "Faithfulness, relevance, exact-match/BLEU/ROUGE overview.",
+            "implement": "Implement an automated eval script for a RAG pipeline.",
+            "mini_project": "Mini: RAG-answer-quality scorer."
+          },
+          {
+            "name": "Guardrails & Safety",
+            "duration": "1 hour",
+            "learn": "Input/output filtering, prompt-injection defenses.",
+            "implement": "Add basic guardrails to an agent (input validation).",
+            "mini_project": "Mini: prompt-injection test suite."
+          },
+          {
+            "name": "Cost/Latency Optimization",
+            "duration": "1 hour",
+            "learn": "Caching, model routing, batching requests.",
+            "implement": "Implement response caching for repeated queries.",
+            "mini_project": "Mini: cost-tracking dashboard for LLM calls."
+          }
+        ]
+      },
+      {
+        "name": "Emerging Agent Protocols & Frontier Concepts",
+        "duration": "3-4 hours",
+        "learn": "Cross-agent interoperability protocols (e.g. Google's Agent2Agent/A2A, Model Context Protocol), evolving standards.",
+        "implement": "Read current documentation/specs and prototype a minimal MCP or A2A-style tool server.",
+        "mini_project": "Build a 'Custom MCP-Style Tool Server' exposing 2-3 tools to an agent client.",
+        "subtopics": [
+          {
+            "name": "Model Context Protocol (MCP) Concepts",
+            "duration": "1 hour",
+            "learn": "How MCP standardizes tool/context exposure to agents.",
+            "implement": "Build a minimal MCP-style server exposing one tool.",
+            "mini_project": "Mini: MCP tool server + client demo."
+          },
+          {
+            "name": "Agent Interoperability (A2A & Similar)",
+            "duration": "1 hour",
+            "learn": "Why cross-agent/cross-vendor protocols matter; research current state (this area evolves fast \u2014 verify via web search before building).",
+            "implement": "Prototype two agents exchanging structured messages via a shared protocol.",
+            "mini_project": "Mini: two-agent handoff demo using a defined message schema."
+          },
+          {
+            "name": "Staying Current",
+            "duration": "1 hour",
+            "learn": "Building a habit of tracking frontier releases (Google/OpenAI/Anthropic agent tooling updates).",
+            "implement": "Set up a weekly research routine + notes log for new agent protocols.",
+            "mini_project": "Mini: personal 'AI frontier digest' note template, updated weekly."
+          }
+        ]
+      }
+    ],
+    "Python Projects": [
+      {
+        "name": "Core Python & Idiomatic Code",
+        "duration": "3-4 hours",
+        "learn": "Comprehensions, generators, decorators, context managers, typing.",
+        "implement": "Refactor a script using generators/decorators/type hints.",
+        "mini_project": "Build a 'CLI Toolkit' (argparse-based) with 3 useful commands.",
+        "subtopics": [
+          {
+            "name": "Comprehensions & Generators",
+            "duration": "1 hour",
+            "learn": "List/dict/set comprehensions, generator expressions, yield.",
+            "implement": "Rewrite loops as comprehensions/generators.",
+            "mini_project": "Mini: memory-efficient large-file line processor."
+          },
+          {
+            "name": "Decorators & Context Managers",
+            "duration": "1 hour",
+            "learn": "Function decorators, @contextmanager, with-statements.",
+            "implement": "Write a timing decorator + a custom context manager.",
+            "mini_project": "Mini: function-performance profiler decorator."
+          },
+          {
+            "name": "Type Hints & Clean Code",
+            "duration": "1 hour",
+            "learn": "typing module, dataclasses, PEP8/linting.",
+            "implement": "Add type hints + dataclasses to an existing script.",
+            "mini_project": "Mini: type-checked config-loader module."
+          }
+        ]
+      },
+      {
+        "name": "File, Data & Automation Scripts",
+        "duration": "3-4 hours",
+        "learn": "File I/O, CSV/JSON handling, regex, scheduling automation tasks.",
+        "implement": "Build a script that processes files and outputs a report.",
+        "mini_project": "Build a 'Bulk File Organizer' that sorts/renames files by type/date.",
+        "subtopics": [
+          {
+            "name": "File I/O & Formats",
+            "duration": "1 hour",
+            "learn": "Reading/writing CSV/JSON/text robustly.",
+            "implement": "Build a CSV-to-JSON converter with error handling.",
+            "mini_project": "Mini: log-file parser & summarizer."
+          },
+          {
+            "name": "Regex & Text Processing",
+            "duration": "1 hour",
+            "learn": "Pattern matching, groups, substitution.",
+            "implement": "Write regex-based data extraction script.",
+            "mini_project": "Mini: email/phone-number extractor from text."
+          },
+          {
+            "name": "Automation & Scheduling",
+            "duration": "1 hour",
+            "learn": "Scripting repetitive tasks, cron-style scheduling (schedule/APScheduler).",
+            "implement": "Automate a repetitive file/data task.",
+            "mini_project": "Mini: scheduled backup/report script."
+          }
+        ]
+      },
+      {
+        "name": "Web Scraping & APIs",
+        "duration": "3-4 hours",
+        "learn": "Requests, BeautifulSoup/Selenium, REST API consumption, rate limiting.",
+        "implement": "Scrape a website and store structured data.",
+        "mini_project": "Build a 'Price Tracker' that scrapes and alerts on price drops.",
+        "subtopics": [
+          {
+            "name": "HTTP & Requests Library",
+            "duration": "1 hour",
+            "learn": "GET/POST, headers, auth, pagination.",
+            "implement": "Consume a public REST API and parse responses.",
+            "mini_project": "Mini: weather/currency CLI tool using a public API."
+          },
+          {
+            "name": "HTML Parsing (BeautifulSoup)",
+            "duration": "1 hour",
+            "learn": "Selectors, tag navigation, static scraping.",
+            "implement": "Scrape a static webpage into structured data.",
+            "mini_project": "Mini: news-headline scraper & CSV exporter."
+          },
+          {
+            "name": "Dynamic Scraping (Selenium/Playwright)",
+            "duration": "1 hour",
+            "learn": "Headless browser automation for JS-heavy sites.",
+            "implement": "Automate a login + data-extraction flow.",
+            "mini_project": "Mini: automated form-fill/scrape bot."
+          }
+        ]
+      },
+      {
+        "name": "Building APIs with Flask/FastAPI",
+        "duration": "3-4 hours",
+        "learn": "Routes, request/response models, validation, middleware.",
+        "implement": "Build a REST API with CRUD endpoints using FastAPI.",
+        "mini_project": "Build a 'Task Manager API' with FastAPI + SQLite.",
+        "subtopics": [
+          {
+            "name": "FastAPI Basics",
+            "duration": "1 hour",
+            "learn": "Path/query params, Pydantic models, auto-docs.",
+            "implement": "Build 3 endpoints with request validation.",
+            "mini_project": "Mini: 'notes API' with GET/POST endpoints."
+          },
+          {
+            "name": "Database Integration",
+            "duration": "1 hour",
+            "learn": "SQLAlchemy/SQLite basics, CRUD operations.",
+            "implement": "Wire a database into your API.",
+            "mini_project": "Mini: persistent task-manager backend."
+          },
+          {
+            "name": "Auth & Middleware",
+            "duration": "1 hour",
+            "learn": "JWT auth basics, CORS, error handling middleware.",
+            "implement": "Add JWT-based auth to an endpoint.",
+            "mini_project": "Mini: authenticated API with protected routes."
+          }
+        ]
+      },
+      {
+        "name": "Testing, Packaging & Deployment",
+        "duration": "3-4 hours",
+        "learn": "pytest, virtual environments, packaging, Docker basics, deployment.",
+        "implement": "Write unit tests for an existing project; containerize it.",
+        "mini_project": "Deploy a Python API to a free hosting service with Docker.",
+        "subtopics": [
+          {
+            "name": "Testing with pytest",
+            "duration": "1 hour",
+            "learn": "Unit tests, fixtures, mocking.",
+            "implement": "Write a test suite for a prior mini-project.",
+            "mini_project": "Mini: test-coverage report for an existing script."
+          },
+          {
+            "name": "Packaging & Environments",
+            "duration": "1 hour",
+            "learn": "venv/poetry, requirements.txt, project structure.",
+            "implement": "Package a script as an installable CLI tool.",
+            "mini_project": "Mini: pip-installable CLI utility."
+          },
+          {
+            "name": "Docker & Deployment",
+            "duration": "1 hour",
+            "learn": "Dockerfile basics, deploying to Render/Railway/Fly.io.",
+            "implement": "Containerize and deploy an API.",
+            "mini_project": "Mini: live-deployed API with a public URL."
+          }
+        ]
+      },
+      {
+        "name": "Automation & Practical Python Projects",
+        "duration": "3-4 hours",
+        "learn": "Combining scraping/APIs/automation into real tools.",
+        "implement": "Design and build a multi-component automation tool.",
+        "mini_project": "Build a 'Personal Automation Suite' (e.g. auto-email-summarizer + file organizer + tracker sync).",
+        "subtopics": [
+          {
+            "name": "Email/Notification Automation",
+            "duration": "1 hour",
+            "learn": "Sending emails/Slack/Telegram messages via API.",
+            "implement": "Automate a notification when a condition is met.",
+            "mini_project": "Mini: 'price-drop alert' notifier."
+          },
+          {
+            "name": "Data Pipeline Scripts",
+            "duration": "1 hour",
+            "learn": "Combining scrape \u2192 clean \u2192 store \u2192 notify.",
+            "implement": "Build a small end-to-end pipeline.",
+            "mini_project": "Mini: daily-digest generator script."
+          },
+          {
+            "name": "Integration Capstone",
+            "duration": "1 hour",
+            "learn": "Tying automation into the Habit Tracker itself.",
+            "implement": "Write a script that logs a completed skill/habit via the tracker's API.",
+            "mini_project": "Mini: CLI that marks today's habit-tracker tasks done via API call."
+          }
+        ]
+      }
+    ],
+    "Canva Design": [
+      {
+        "name": "Design Fundamentals",
+        "duration": "3-4 hours",
+        "learn": "Color theory, typography pairing, layout/grid, visual hierarchy.",
+        "implement": "Recreate 3 existing designs applying hierarchy/contrast principles.",
+        "mini_project": "Build a 'Personal Brand Style Guide' (colors, fonts, logo usage) in Canva.",
+        "subtopics": [
+          {
+            "name": "Color Theory",
+            "duration": "1 hour",
+            "learn": "Color wheel, palettes, contrast, accessibility.",
+            "implement": "Build 3 color palettes for different moods/brands.",
+            "mini_project": "Mini: mood-based palette generator board."
+          },
+          {
+            "name": "Typography",
+            "duration": "1 hour",
+            "learn": "Font pairing, hierarchy, readability.",
+            "implement": "Design 3 text-hierarchy layouts with paired fonts.",
+            "mini_project": "Mini: typography cheat-sheet poster."
+          },
+          {
+            "name": "Layout & Grid Systems",
+            "duration": "1 hour",
+            "learn": "Alignment, whitespace, grid-based composition.",
+            "implement": "Redesign a cluttered layout using grid alignment.",
+            "mini_project": "Mini: before/after layout redesign comparison."
+          }
+        ]
+      },
+      {
+        "name": "Social Media & Marketing Design",
+        "duration": "3-4 hours",
+        "learn": "Instagram/LinkedIn post templates, carousels, brand consistency.",
+        "implement": "Design a set of 5 on-brand social media templates.",
+        "mini_project": "Build a 'Content Calendar Design Kit' (10 reusable templates).",
+        "subtopics": [
+          {
+            "name": "Post & Story Templates",
+            "duration": "1 hour",
+            "learn": "Platform-specific sizing, safe zones.",
+            "implement": "Design Instagram post + story templates.",
+            "mini_project": "Mini: 3-post branded mini-campaign."
+          },
+          {
+            "name": "Carousels & Infographics",
+            "duration": "1 hour",
+            "learn": "Multi-slide storytelling, data visualization basics.",
+            "implement": "Design a 5-slide educational carousel.",
+            "mini_project": "Mini: 'how-to' carousel on any topic."
+          },
+          {
+            "name": "Brand Kits & Consistency",
+            "duration": "1 hour",
+            "learn": "Canva Brand Kit setup, reusable components.",
+            "implement": "Set up a Brand Kit with logo/colors/fonts.",
+            "mini_project": "Mini: fully branded template pack (5 templates)."
+          }
+        ]
+      },
+      {
+        "name": "Presentation & Document Design",
+        "duration": "3-4 hours",
+        "learn": "Slide design principles, data viz, resume/portfolio design.",
+        "implement": "Redesign a boring slide deck using design principles.",
+        "mini_project": "Build a 'Portfolio/Resume Design' in Canva.",
+        "subtopics": [
+          {
+            "name": "Slide Design Principles",
+            "duration": "1 hour",
+            "learn": "One-idea-per-slide, visual hierarchy, minimal text.",
+            "implement": "Redesign 5 slides from a text-heavy deck.",
+            "mini_project": "Mini: 5-slide portfolio pitch deck."
+          },
+          {
+            "name": "Data Visualization Basics",
+            "duration": "1 hour",
+            "learn": "Charts/infographics that communicate clearly.",
+            "implement": "Design 2 custom infographic charts.",
+            "mini_project": "Mini: infographic summarizing a dataset."
+          },
+          {
+            "name": "Resume/Portfolio Layouts",
+            "duration": "1 hour",
+            "learn": "ATS-friendly design, visual resumes.",
+            "implement": "Design a resume + one-page portfolio.",
+            "mini_project": "Mini: complete personal resume + portfolio PDF export."
+          }
+        ]
+      },
+      {
+        "name": "Motion, Video & Advanced Canva",
+        "duration": "3-4 hours",
+        "learn": "Canva video editing, animations, transitions, templates for reels.",
+        "implement": "Create a short animated promo video/reel in Canva.",
+        "mini_project": "Build a '30-Second Explainer Reel' for a project (e.g. the Habit Tracker itself).",
+        "subtopics": [
+          {
+            "name": "Basic Animation & Transitions",
+            "duration": "1 hour",
+            "learn": "Element animation, page transitions.",
+            "implement": "Animate a 3-slide sequence.",
+            "mini_project": "Mini: animated title-card intro."
+          },
+          {
+            "name": "Video Editing in Canva",
+            "duration": "1 hour",
+            "learn": "Trimming, text overlays, music syncing.",
+            "implement": "Edit a short clip with captions/music.",
+            "mini_project": "Mini: 30-second promo video."
+          },
+          {
+            "name": "Templates for Reels/Shorts",
+            "duration": "1 hour",
+            "learn": "Vertical video design, hook-first structure.",
+            "implement": "Design a reel template with hook/body/CTA structure.",
+            "mini_project": "Mini: branded reel template ready for reuse."
+          }
+        ]
+      }
+    ],
+    "Full-Stack Web Dev & Interview Prep": [
+      {
+        "name": "Frontend Fundamentals & React",
+        "duration": "3-4 hours",
+        "learn": "HTML/CSS/JS refresh, React components, hooks, state management.",
+        "implement": "Build a multi-component React app with state and props.",
+        "mini_project": "Build a 'Habit Tracker Frontend Prototype' in React (mirrors your real project).",
+        "subtopics": [
+          {
+            "name": "HTML/CSS/JS Refresh",
+            "duration": "1 hour",
+            "learn": "Semantic HTML, flexbox/grid, modern JS (ES6+).",
+            "implement": "Build a responsive static page.",
+            "mini_project": "Mini: personal landing page."
+          },
+          {
+            "name": "React Components & Hooks",
+            "duration": "1 hour",
+            "learn": "useState/useEffect, props, component composition.",
+            "implement": "Build a 3-component interactive app.",
+            "mini_project": "Mini: to-do list app in React."
+          },
+          {
+            "name": "State Management",
+            "duration": "1 hour",
+            "learn": "Context API vs external libs (Zustand/Redux) overview.",
+            "implement": "Add global state to a multi-page app.",
+            "mini_project": "Mini: theme-switcher + shared-state demo."
+          }
+        ]
+      },
+      {
+        "name": "Backend & APIs (Project Library track)",
+        "duration": "3-4 hours",
+        "learn": "User authentication, REST APIs, integrating third-party APIs (charts/data).",
+        "implement": "Implement user auth (signup/login) + protected routes.",
+        "mini_project": "Build a 'Stock Dashboard' with live API data + Chart.js visualization (matches DevHub Library project).",
+        "subtopics": [
+          {
+            "name": "User Authentication",
+            "duration": "1 hour",
+            "learn": "Sessions vs JWT, password hashing.",
+            "implement": "Implement signup/login with hashed passwords.",
+            "mini_project": "Mini: auth-protected mini-app."
+          },
+          {
+            "name": "Charting with Chart.js",
+            "duration": "1 hour",
+            "learn": "Rendering live data as charts.",
+            "implement": "Integrate Chart.js with a live data feed.",
+            "mini_project": "Mini: real-time data dashboard widget."
+          },
+          {
+            "name": "Consuming External APIs",
+            "duration": "1 hour",
+            "learn": "Rate limits, API keys, error handling.",
+            "implement": "Integrate a public stock/weather API.",
+            "mini_project": "Mini: live stock-price mini-dashboard."
+          }
+        ]
+      },
+      {
+        "name": "Testing & Deployment (Project Library track)",
+        "duration": "3-4 hours",
+        "learn": "Unit/integration testing (Jest), CI basics, deploying to AWS/Vercel.",
+        "implement": "Write a Jest test suite for a component/module.",
+        "mini_project": "Deploy a full-stack app to AWS/Vercel with a working CI pipeline.",
+        "subtopics": [
+          {
+            "name": "Testing Fundamentals",
+            "duration": "1 hour",
+            "learn": "What/why of testing, test pyramid.",
+            "implement": "Write basic unit tests for pure functions.",
+            "mini_project": "Mini: tested utility-function library."
+          },
+          {
+            "name": "Unit Testing with Jest",
+            "duration": "1 hour",
+            "learn": "Mocking, coverage, testing React components.",
+            "implement": "Write Jest tests for a React component.",
+            "mini_project": "Mini: fully tested to-do app module."
+          },
+          {
+            "name": "Deployment (AWS/Vercel)",
+            "duration": "1 hour",
+            "learn": "Build pipelines, environment variables, hosting.",
+            "implement": "Deploy a full-stack app end-to-end.",
+            "mini_project": "Mini: live-deployed project with public URL."
+          }
+        ]
+      },
+      {
+        "name": "DSA Interview Prep (Company-Wise)",
+        "duration": "3-4 hours",
+        "learn": "Pattern recognition across company-tagged problem sets (matches Plus Library: Amazon/Adobe tiers).",
+        "implement": "Solve 10 company-tagged problems, categorizing by pattern used.",
+        "mini_project": "Build a 'Personal Interview Tracker' logging problems solved by company/pattern/difficulty.",
+        "subtopics": [
+          {
+            "name": "Array/Matrix Interview Patterns",
+            "duration": "1 hour",
+            "learn": "In-place ops, matrix traversal, Sudoku-style constraint checks.",
+            "implement": "Solve 'Search a 2D Matrix', 'Valid Sudoku', 'Sort Colors'.",
+            "mini_project": "Mini: pattern-tagged problem log for arrays."
+          },
+          {
+            "name": "Medium-Hard Company Problems",
+            "duration": "1 hour",
+            "learn": "Multi-pattern problems combining DP/greedy/graph.",
+            "implement": "Solve 5 medium/hard tagged problems (mixed patterns).",
+            "mini_project": "Mini: weekly problem-difficulty progress chart."
+          },
+          {
+            "name": "Mock Interview Practice",
+            "duration": "1 hour",
+            "learn": "Timed problem-solving, explaining approach out loud.",
+            "implement": "Do 2 timed 45-min mock sessions (record yourself).",
+            "mini_project": "Mini: self-review notes doc per mock interview."
+          }
+        ]
+      },
+      {
+        "name": "System Design Basics",
+        "duration": "3-4 hours",
+        "learn": "Scalability basics, load balancing, caching, DB choices, API design.",
+        "implement": "Design a simple system (e.g. URL shortener) on paper/diagram.",
+        "mini_project": "Build a 'System Design Notebook' with 5 designed systems (diagrams + tradeoffs).",
+        "subtopics": [
+          {
+            "name": "Scalability Fundamentals",
+            "duration": "1 hour",
+            "learn": "Vertical/horizontal scaling, load balancers.",
+            "implement": "Diagram a load-balanced 3-tier system.",
+            "mini_project": "Mini: scalability-tradeoff cheat sheet."
+          },
+          {
+            "name": "Caching & Databases",
+            "duration": "1 hour",
+            "learn": "Cache strategies, SQL vs NoSQL tradeoffs.",
+            "implement": "Design a caching layer for a read-heavy API.",
+            "mini_project": "Mini: cache-strategy comparison doc."
+          },
+          {
+            "name": "Classic Design Problems",
+            "duration": "1 hour",
+            "learn": "URL shortener, rate limiter, chat app basics.",
+            "implement": "Design a URL shortener end-to-end (diagram + key decisions).",
+            "mini_project": "Mini: written system-design doc for URL shortener."
+          }
+        ]
+      }
+    ]
+  }
+}
