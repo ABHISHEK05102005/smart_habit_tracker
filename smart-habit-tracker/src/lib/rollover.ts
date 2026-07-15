@@ -38,7 +38,6 @@ export async function runDailyRollover() {
       where: {
         skillId,
         dateIST: today,
-        source: "AUTO",
       }
     });
 
@@ -118,7 +117,6 @@ export async function runWeeklyRollover() {
           skillId,
           moduleId: targetModule.id,
           weekIST: weekStart,
-          source: "AUTO",
         }
       });
 
