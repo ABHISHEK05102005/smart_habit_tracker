@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { runWeeklyRollover } from "@/lib/rollover";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
   try {
     const authHeader = request.headers.get("authorization");
     if (
