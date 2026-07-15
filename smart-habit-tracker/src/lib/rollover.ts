@@ -34,22 +34,30 @@ export async function runDailyRollover() {
     const targetSubtopic = subtopics[cursor.dailyCursorIdx % subtopics.length];
 
     // Create daily task if not exists
-    await prisma.dailyTask.upsert({
-      where: { id: "never_match" }, // prisma doesn't have unique constraint on (date, skill, subtopic) yet, so we just check manually or use findFirst
-      update: {},
-      create: {
+    const existingTask = await prisma.dailyTask.findFirst({
+      where: {
         skillId,
-        subtopicId: targetSubtopic.id,
         dateIST: today,
         source: "AUTO",
-      },
+      }
     });
 
-    // Advance cursor
-    await prisma.rotationCursor.update({
-      where: { id: cursor.id },
-      data: { dailyCursorIdx: cursor.dailyCursorIdx + 1 },
-    });
+    if (!existingTask) {
+      await prisma.dailyTask.create({
+        data: {
+          skillId,
+          subtopicId: targetSubtopic.id,
+          dateIST: today,
+          source: "AUTO",
+        },
+      });
+
+      // Advance cursor
+      await prisma.rotationCursor.update({
+        where: { id: cursor.id },
+        data: { dailyCursorIdx: cursor.dailyCursorIdx + 1 },
+      });
+    }
   }
 
   // 3. Inject College Classes for today
@@ -99,26 +107,41 @@ export async function runWeeklyRollover() {
       create: { userId: "default", skillId, dailyCursorIdx: 0, weeklyCursorIdx: 0 },
     });
 
+    let addedTasks = 0;
     for (let i = 0; i < modulesPerWeek; i++) {
       const idx = (cursor.weeklyCursorIdx + i) % modules.length;
       const targetModule = modules[idx];
 
-      // Create weekly task
-      await prisma.weeklyTask.create({
-        data: {
+      // Create weekly task if not exists
+      const existingWeekly = await prisma.weeklyTask.findFirst({
+        where: {
           skillId,
           moduleId: targetModule.id,
           weekIST: weekStart,
           source: "AUTO",
-        },
+        }
       });
+
+      if (!existingWeekly) {
+        await prisma.weeklyTask.create({
+          data: {
+            skillId,
+            moduleId: targetModule.id,
+            weekIST: weekStart,
+            source: "AUTO",
+          },
+        });
+        addedTasks++;
+      }
     }
 
-    // Advance cursor
-    await prisma.rotationCursor.update({
-      where: { id: cursor.id },
-      data: { weeklyCursorIdx: cursor.weeklyCursorIdx + modulesPerWeek },
-    });
+    if (addedTasks > 0) {
+      // Advance cursor
+      await prisma.rotationCursor.update({
+        where: { id: cursor.id },
+        data: { weeklyCursorIdx: cursor.weeklyCursorIdx + addedTasks },
+      });
+    }
   }
 
   console.log(`Weekly rollover completed for week starting ${weekStart}`);

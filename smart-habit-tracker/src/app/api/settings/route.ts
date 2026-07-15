@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { runDailyRollover, runWeeklyRollover } from "@/lib/rollover";
 
 export async function GET() {
   try {
@@ -27,6 +28,12 @@ export async function PATCH(request: Request) {
         ...(principleSkills ? { principleSkills } : {}),
       },
     });
+
+    if (principleSkills) {
+      // Generate tasks for newly added skills immediately
+      await runDailyRollover();
+      await runWeeklyRollover();
+    }
 
     return NextResponse.json(settings);
   } catch (error) {
