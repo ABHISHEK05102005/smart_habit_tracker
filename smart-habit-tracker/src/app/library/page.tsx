@@ -12,6 +12,7 @@ export default function Library() {
   const router = useRouter();
   const [skills, setSkills] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState("");
   
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,7 +24,15 @@ export default function Library() {
     fetch("/api/skills")
       .then(r => r.json())
       .then(d => {
-        setSkills(d);
+        if (Array.isArray(d)) {
+          setSkills(d);
+        } else {
+          setFetchError(d?.error || "Failed to load skills from database.");
+        }
+        setLoading(false);
+      })
+      .catch(e => {
+        setFetchError(e.message || "Network error");
         setLoading(false);
       });
   }, []);
@@ -63,8 +72,15 @@ export default function Library() {
         <Button onClick={() => setIsModalOpen(true)}>+ Expand Custom Skill</Button>
       </header>
 
+      {fetchError && (
+        <div style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", padding: "1rem", borderRadius: "var(--radius-md)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+          <strong>Error loading library:</strong> {fetchError}
+          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>If your Supabase free-tier database was paused due to 7 days of inactivity, visit your Supabase dashboard and click Restore Project.</p>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1.5rem" }}>
-        {skills.map(s => (
+        {Array.isArray(skills) && skills.map(s => (
           <Card key={s.id}>
             <h2 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem" }}>{s.name}</h2>
             <div style={{ fontSize: "0.875rem", color: "var(--text-muted)", marginBottom: "1rem" }}>

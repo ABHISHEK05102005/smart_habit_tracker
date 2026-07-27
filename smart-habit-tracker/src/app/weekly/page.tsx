@@ -10,12 +10,21 @@ type Task = any;
 export default function WeeklyView() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState("");
 
   useEffect(() => {
     fetch("/api/tasks/weekly")
       .then(r => r.json())
       .then(d => {
-        setTasks(d);
+        if (Array.isArray(d)) {
+          setTasks(d);
+        } else {
+          setFetchError(d?.error || "Failed to load weekly tasks from database.");
+        }
+        setLoading(false);
+      })
+      .catch(e => {
+        setFetchError(e.message || "Network error");
         setLoading(false);
       });
   }, []);
@@ -38,8 +47,15 @@ export default function WeeklyView() {
         <p style={{ color: "var(--text-muted)" }}>Deep dive into your rotated modules for the week.</p>
       </header>
 
+      {fetchError && (
+        <div style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", padding: "1rem", borderRadius: "var(--radius-md)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+          <strong>Error loading tasks:</strong> {fetchError}
+          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>If your Supabase free-tier database was paused due to inactivity, visit your Supabase dashboard and click Restore Project.</p>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))", gap: "1.5rem" }}>
-        {tasks.map((task) => (
+        {Array.isArray(tasks) && tasks.map((task) => (
           <Card key={task.id} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
               <div>

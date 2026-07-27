@@ -8,19 +8,26 @@ export default function Settings() {
   const [skills, setSkills] = useState<any[]>([]);
   const [settings, setSettings] = useState<any>(null);
   const [saving, setSaving] = useState(false);
+  const [fetchError, setFetchError] = useState("");
 
   useEffect(() => {
     Promise.all([
       fetch("/api/skills").then(r => r.json()),
       fetch("/api/settings").then(r => r.json())
     ]).then(([skillsData, settingsData]) => {
-      setSkills(skillsData);
-      setSettings(settingsData);
+      if (Array.isArray(skillsData) && !settingsData?.error) {
+        setSkills(skillsData);
+        setSettings(settingsData);
+      } else {
+        setFetchError(skillsData?.error || settingsData?.error || "Failed to load settings from database.");
+      }
+    }).catch(e => {
+      setFetchError(e.message || "Network error");
     });
   }, []);
 
   const handleTogglePrinciple = (skillId: string) => {
-    if (!settings) return;
+    if (!settings || !Array.isArray(settings.principleSkills)) return;
     
     let nextSkills = [...settings.principleSkills];
     if (nextSkills.includes(skillId)) {
@@ -47,7 +54,21 @@ export default function Settings() {
     alert("Settings saved successfully!");
   };
 
-  if (!settings || skills.length === 0) return <div className="animate-fade-in">Loading settings...</div>;
+  if (fetchError) {
+    return (
+      <div className="animate-fade-in" style={{ display: "flex", flexDirection: "column", gap: "2rem", maxWidth: "800px" }}>
+        <header>
+          <h1 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "0.5rem" }}>Settings</h1>
+        </header>
+        <div style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", padding: "1rem", borderRadius: "var(--radius-md)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+          <strong>Error loading settings:</strong> {fetchError}
+          <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>If your Supabase free-tier database was paused due to inactivity, visit your Supabase dashboard and click Restore Project.</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!settings || !Array.isArray(skills) || skills.length === 0) return <div className="animate-fade-in">Loading settings...</div>;
 
   return (
     <div className="animate-fade-in" style={{ display: "flex", flexDirection: "column", gap: "2rem", maxWidth: "800px" }}>
@@ -63,7 +84,7 @@ export default function Settings() {
 
       <Card style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={{ marginBottom: "1rem" }}>
-          <h2 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.5rem" }}>Principle Skills ({settings.principleSkills.length}/5)</h2>
+          <h2 style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.5rem" }}>Principle Skills ({Array.isArray(settings?.principleSkills) ? settings.principleSkills.length : 0}/5)</h2>
           <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>
             Select the skills you want to actively rotate through daily and weekly tasks.
           </p>

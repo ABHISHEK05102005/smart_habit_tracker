@@ -15,12 +15,23 @@ export default function Timetable() {
   const [rawText, setRawText] = useState("");
   const [loading, setLoading] = useState(true);
   const [parsing, setParsing] = useState(false);
+  const [fetchError, setFetchError] = useState("");
 
   const fetchRules = async () => {
-    const res = await fetch("/api/college-classes");
-    const data = await res.json();
-    setRules(data);
-    setLoading(false);
+    try {
+      const res = await fetch("/api/college-classes");
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setRules(data);
+        setFetchError("");
+      } else {
+        setFetchError(data?.error || "Failed to load timetable from database.");
+      }
+    } catch (e: any) {
+      setFetchError(e.message || "Network error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -90,9 +101,15 @@ export default function Timetable() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 600 }}>Active Classes</h2>
-        {rules.length === 0 && <p style={{ color: "var(--text-muted)" }}>No classes scheduled.</p>}
+        {fetchError && (
+          <div style={{ background: "rgba(239, 68, 68, 0.1)", color: "#ef4444", padding: "1rem", borderRadius: "var(--radius-md)", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+            <strong>Error loading timetable:</strong> {fetchError}
+            <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>If your Supabase free-tier database was paused due to inactivity, visit your Supabase dashboard and click Restore Project.</p>
+          </div>
+        )}
+        {!fetchError && Array.isArray(rules) && rules.length === 0 && <p style={{ color: "var(--text-muted)" }}>No classes scheduled.</p>}
         
-        {rules.map((rule) => (
+        {Array.isArray(rules) && rules.map((rule) => (
           <Card key={rule.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem" }}>
             <div>
               <h3 style={{ fontSize: "1.1rem", fontWeight: 600 }}>
